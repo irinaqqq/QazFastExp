@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Decryption Page</title>
+  <style>
+    body {
+        background-color: #92cfff;
+        background-size: cover;
+        background-position: center;
+        color: black;
+        font-family: Arial, sans-serif;
+    }
+
+    h1 {
+        display: block;
+        text-align: center;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 26px; /* increased font size */
+        color: black; /* changed color to white */
+        background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
+        border-radius: 10px;
+        margin-left: 17%;
+    }
+    p {
+      display: block;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px; /* increased font size */
+      color: black; /* changed color to white */
+      background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* add shadow effect */
+  }
+    form {
+        max-width: 800px;
+        margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgb(131 152 255 / 50%); /* set opacity to 0.8 */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* add shadow effect */
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 130px;
+    }
+
+    form label, form textarea {
+        margin-bottom: 10px;
+        display: block;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+    }
+
+    form input[type="text"], form textarea, form input[type="file"] {
+        border-radius: 5px;
+        border: none;
+        background-color: #f5f5f5;
+        padding: 10px;
+        font-size: 18px;
+        color: black;
+        width: 100%;
+    }
+
+    form input[type="file"] {
+        background-color: white;
+        margin-bottom: 0;
+    }
+
+    form button[type="submit"], form input[type="button"] {
+        color: #fff;
+        background-color: #333;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+        font-size: 18px;
+        margin: 20px;
+       
+    }
+
+    form button[type="submit"]:hover, form button[type="button"]:hover {
+        background-color: #444;
+    }
+
+    .links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        background-color: rgb(131 152 255 / 100%);
+      }
+      
+      .links a {
+        color: #333;
+        text-decoration: none;
+        padding: 32px 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease-in-out;
+      }
+      
+      .links a:hover {
+        background-color: #333;
+        color: #fff;
+      }
+    .custom-file-upload {
+      display: inline-block;
+      padding: 6px 12px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      margin-bottom:0px;
+      margin-top: 10px;
+  }
+
+  .custom-file-upload input[type="file"] {
+      display: none;
+  }
+</style>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label for="ciphertext">Шифрланған мәтінді енгізіңіз:</label>
+  <textarea id="ciphertext" name="ciphertext" rows="3">{{ciphertext}}</textarea>
+  <input type="hidden" id="decryption_type" name="decryption_type" value="">
+  <button type="submit" name="submit_text" onclick="document.getElementById('decryption_type').value='text'">Мәтінді дешифрлау</button>
+  <label for="text">Дешифрланған мәтін:</label>
+  <textarea id="text" name="text" rows="7">{{ text }}</textarea>
+
+
+  <label for="file" class="custom-file-upload">Файлды таңдаңыз
+    <input type="file" id="file" name="file" value="Select a file">
+    </label>
+  <button type="submit" name="submit_file" onclick="document.getElementById('decryption_type').value='file'">Файлды дешифрлау</button>
+</form>
+	<div class="links">
+        <h1>Жылдам дәрежелеу алгоритмін қолдана отырып дешифрлау</h1>
+        <a href="{% url 'encryption' %}">Шифрлау</a>
+        <a href="{% url 'decryption' %}">Дешифрлау</a>
+	</div>
+</body>
+</html>
