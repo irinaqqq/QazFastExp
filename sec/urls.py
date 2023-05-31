@@ -19,6 +19,7 @@ from main import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.encryption, name='encryption'),
+    path('', views.landing, name='landing'),
     path('decryption/', views.decryption, name='decryption'),
+    path('encryption/', views.encryption, name='encryption'),
 ]

@@ -105,3 +105,7 @@ def decryption(request):
 
             return response    
     return render(request, 'decryption.html')
+
+
+def landing(request):
+    return render(request, 'landing.html')

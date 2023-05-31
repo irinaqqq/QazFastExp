@@ -1,44 +1,62 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Decryption Page</title>
-  <style>
-    body {
-        background-color: #92cfff;
-        background-size: cover;
-        background-position: center;
-        color: black;
-        font-family: Arial, sans-serif;
-    }
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Diploma Work</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="/static/img/logo.png"
+    />
+    <!-- Place favicon.ico in the root directory -->
 
-    h1 {
-        display: block;
-        text-align: center;
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 26px; /* increased font size */
-        color: black; /* changed color to white */
-        background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
-        border-radius: 10px;
-        margin-left: 17%;
-    }
-    p {
-      display: block;
-      text-align: center;
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px; /* increased font size */
-      color: black; /* changed color to white */
-      background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* add shadow effect */
-  }
-    form {
+    <!-- ======== CSS here ======== -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/lineicons.css" />
+    <link rel="stylesheet" href="/static/css/animate.css" />
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <style>
+        body {
+            background-color: #92cfff;
+            background-size: cover;
+            background-position: center;
+            color: black;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            display: block;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px; /* increased font size */
+            color: black; /* changed color to white */
+            background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
+            border-radius: 10px;
+            margin-left: 17%;
+        }
+        p {
+          margin-top: 80px;
+          display: block;
+          text-align: center;
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px; /* increased font size */
+          color: black; /* changed color to white */
+          background-color: rgb(131 152 255 / 80%); /* set opacity to 0.8 */
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7); /* add shadow effect */
+          width: 50%;
+          margin-left: 25%;
+      }
+      form {
         max-width: 800px;
-        margin: 20px auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -46,108 +64,233 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); /* add shadow effect */
         padding: 20px;
         border-radius: 10px;
-        margin-top: 130px;
     }
 
-    form label, form textarea {
-        margin-bottom: 10px;
-        display: block;
-        font-size: 20px;
-        font-weight: bold;
-        color: black;
-    }
+        form label, form textarea {
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+        }
 
-    form input[type="text"], form textarea, form input[type="file"] {
-        border-radius: 5px;
-        border: none;
-        background-color: #f5f5f5;
-        padding: 10px;
-        font-size: 18px;
-        color: black;
-        width: 100%;
-    }
+        form input[type="text"], form textarea, form input[type="file"] {
+            border-radius: 5px;
+            border: none;
+            background-color: #f5f5f5;
+            padding: 10px;
+            font-size: 18px;
+            color: black;
+            width: 100%;
+            margin: 20px;
+            
+        }
 
-    form input[type="file"] {
-        background-color: white;
-        margin-bottom: 0;
-    }
+        form input[type="file"] {
+            background-color: white;
+            margin-bottom: 20px;
+        }
 
-    form button[type="submit"], form input[type="button"] {
-        color: #fff;
-        background-color: #333;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease-in-out;
-        font-size: 18px;
-        margin: 20px;
-       
-    }
+        form button[type="submit"], form button[type="button"] {
+            color: #fff;
+            /* background-color: #333; */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            font-size: 18px;
+            margin-bottom: 0px;
+        }
 
-    form button[type="submit"]:hover, form button[type="button"]:hover {
-        background-color: #444;
-    }
+        form button[type="submit"]:hover, form button[type="button"]:hover {
+            /* background-color: #444; */
+        }
 
-    .links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        padding: 10px;
-        background-color: rgb(131 152 255 / 100%);
-      }
-      
-      .links a {
-        color: #333;
-        text-decoration: none;
-        padding: 32px 20px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease-in-out;
-      }
-      
-      .links a:hover {
-        background-color: #333;
-        color: #fff;
-      }
-    .custom-file-upload {
-      display: inline-block;
-      padding: 6px 12px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      background-color: #f8f8f8;
-      margin-bottom:0px;
-      margin-top: 10px;
-  }
+        .links {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: rgb(131 152 255 / 100%);
+          }
+          
+          .links a {
+            color: #333;
+            text-decoration: none;
+            padding: 32px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out;
+          }
+          
+          .links a:hover {
+            background-color: #333;
+            color: #fff;
+          }
+          .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            margin-bottom:20px;
+        }
+    
+        .custom-file-upload input[type="file"] {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
 
-  .custom-file-upload input[type="file"] {
-      display: none;
-  }
-</style>
-</head>
-<body>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <label for="ciphertext">Шифрланған мәтінді енгізіңіз:</label>
-  <textarea id="ciphertext" name="ciphertext" rows="3">{{ciphertext}}</textarea>
-  <input type="hidden" id="decryption_type" name="decryption_type" value="">
-  <button type="submit" name="submit_text" onclick="document.getElementById('decryption_type').value='text'">Мәтінді дешифрлау</button>
-  <label for="text">Дешифрланған мәтін:</label>
-  <textarea id="text" name="text" rows="7">{{ text }}</textarea>
+    <!-- ======== preloader start ======== -->
+    <div class="preloader">
+      <div class="loader">
+        <div class="spinner">
+          <div class="spinner-container">
+            <div class="spinner-rotator">
+              <div class="spinner-left">
+                <div class="spinner-circle"></div>
+              </div>
+              <div class="spinner-right">
+                <div class="spinner-circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- ======== header start ======== -->
+    <header class="header">
+      <div class="navbar-area">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-12">
+              <nav class="navbar navbar-expand-lg" style="align-items: center; display: flex; justify-content: center;">
+                <a class="navbar-brand" href="/">
+                  <img src="/static/img/logo.png" alt="Logo" style="width: 50px; height: 50px; margin-bottom: 10px;" />
+                  <span class="nav-item" style="font-size: 30px;">QazCipher</span>
+                </a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                  <span class="toggler-icon"></span>
+                </button>
+
+                <div
+                  class="collapse navbar-collapse sub-menu-bar"
+                  id="navbarSupportedContent"
+                >
+                  <ul id="nav" class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                      <a href="/">Басты бет</a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="/encryption">Шифрлау</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="page-scroll active" href="/decryption">Дешифрлау</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- navbar collapse -->
+              </nav>
+              <!-- navbar -->
+            </div>
+          </div>
+          <!-- row -->
+        </div>
+        <!-- container -->
+      </div>
+      <!-- navbar area -->
+    </header>
+    <!-- ======== header end ======== -->
+
+    <!-- ======== hero-section start ======== -->
+    <section id="home" class="hero-section">
+      <div class="container">
+        <div class="row align-items-center position-relative" style="top: -50px;">
+          <!-- <div class="col-lg-6"> -->
+            <!-- <div class="hero-content"> -->
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="ciphertext">Шифрланған мәтінді енгізіңіз:</label>
+                <textarea id="ciphertext" name="ciphertext" rows="7">{{ciphertext}}</textarea>
+                <input type="hidden" id="decryption_type" name="decryption_type" value="">
+                <button type="submit" name="submit_text" onclick="document.getElementById('decryption_type').value='text'" class="main-btn border-btn btn-hover wow fadeInUp"
+                data-wow-delay=".6s" style="color: black;">Мәтінді дешифрлау</button>
+                <label for="text" class="mt-3">Дешифрланған мәтін:</label>
+                <textarea id="text" name="text" rows="7">{{ text }}</textarea>
+              
+              
+                <label for="file" class="custom-file-upload main-btn border-btn btn-hover wow fadeInUp" style="color: black;">Файлды таңдаңыз
+                  <input type="file" id="file" name="file" value="Select a file" >
+                  </label>
+                <button type="submit" name="submit_file" onclick="document.getElementById('decryption_type').value='file'" class="main-btn border-btn btn-hover wow fadeInUp"
+                data-wow-delay=".6s" style="color: black;">Файлды дешифрлау</button>
+              </form>     
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-img wow fadeInUp" data-wow-delay=".5s">
+              <!-- <img src="/static/img/hero/hero-img.png" alt="" /> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        </div>
+      </div>
+    </section>
+    <!-- ======== hero-section end ======== -->
+
+    <!-- ======== scroll-top ======== -->
+    <a href="#" class="scroll-top btn-hover">
+      <i class="lni lni-chevron-up"></i>
+    </a>
+
+    <!-- ======== JS here ======== -->
+    <script src="/static/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>
 
 
-  <label for="file" class="custom-file-upload">Файлды таңдаңыз
+<!-- <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="text">Мәтінді енгізіңіз:</label>
+    <textarea id="text" name="text" rows="7">{{origtext}}</textarea>
+
+    <input type="hidden" id="encryption_type" name="encryption_type" value="">
+
+    <button type="submit" name="submit_text" onclick="document.getElementById('encryption_type').value='text'">Мәтінді шифрлау</button>
+    <textarea id="ciptext" name="ciptext" rows="7">{{ ciphertext }}</textarea>
+    <script>
+      const ciptextEl = document.getElementById('ciptext');
+      const ciphertext = ciptextEl.value;
+      const plaintext = ciphertext.slice(1, -1);
+      ciptextEl.value = plaintext;
+    </script>
+    
+    <label for="file" class="custom-file-upload">Файлды таңдаңыз
     <input type="file" id="file" name="file" value="Select a file">
     </label>
-  <button type="submit" name="submit_file" onclick="document.getElementById('decryption_type').value='file'">Файлды дешифрлау</button>
-</form>
-	<div class="links">
-        <h1>Жылдам дәрежелеу алгоритмін қолдана отырып дешифрлау</h1>
-        <a href="{% url 'encryption' %}">Шифрлау</a>
-        <a href="{% url 'decryption' %}">Дешифрлау</a>
-	</div>
-</body>
-</html>
+    <button type="submit" name="submit_file" onclick="document.getElementById('encryption_type').value='file'">Файлды шифрлау</button>
+</form> -->
